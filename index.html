@@ -91,7 +91,20 @@
                         } else {
                             return 'Edit on GitHub'
                         }
-                    })
+                    }),
+                function (hook) {
+                    var footer = [
+                        '<hr/>',
+                        '<footer>',
+                        '<span><a href="https://github.com/Do-sth-sharp">VocalSharp Org.</a> &copy;2024.</span><br>',
+                        '<span>Proudly published with <a href="https://github.com/docsifyjs/docsify" target="_blank">docsify</a>.</span>',
+                        '</footer>'
+                    ].join('');
+
+                    hook.afterEach(function (html) {
+                        return html + footer;
+                    });
+                }
             ],
         }
     </script>
